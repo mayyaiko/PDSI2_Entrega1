@@ -9,12 +9,12 @@ jobs:
       postgres:
         image: postgres:13
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: admin
-          POSTGRES_DB: nome_database
+          POSTGRES_USER: ${{ secrets.USUARIO_DB }}
+          POSTGRES_PASSWORD: ${{ secrets.SENHA_DB }}
+          POSTGRES_DB: ${{ secrets.NOME_DB }}
         ports:
           - 5432:5432
-      steps:
+    steps:
         - name: pulling git repo
           uses: actions/checkout@v2
         - name: instalando o python
