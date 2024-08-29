@@ -34,4 +34,4 @@ jobs:
       - name: Executar pytest
         env:
           DATABASE_URL: postgres://${{ secrets.USUARIO_DB }}:${{ secrets.SENHA_DB }}@localhost:5432/${{ secrets.NOME_DB }}
-        run: pytest
+        run: pytest teste.py
