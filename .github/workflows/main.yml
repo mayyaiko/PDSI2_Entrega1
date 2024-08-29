@@ -26,11 +26,7 @@ jobs:
       - name: instalar dependencias
         run: pip install -r requirements.txt
       - name: Esperando o PostgreSQL ficar pronto
-        run: |
-          while ! pg_isready -h localhost -p 5432 -U ${{ secrets.USUARIO_DB }}; do
-            echo "Aguardando o PostgreSQL ficar pronto..."
-            sleep 5
-          done
+        run: sleep 15
       - name: Executar pytest
         env:
           DATABASE_URL: postgres://${{ secrets.USUARIO_DB }}:${{ secrets.SENHA_DB }}@localhost:5432/${{ secrets.NOME_DB }}
