@@ -12,6 +12,7 @@ jobs:
           POSTGRES_USER: ${{ secrets.USUARIO_DB }}
           POSTGRES_PASSWORD: ${{ secrets.SENHA_DB }}
           POSTGRES_DB: ${{ secrets.NOME_DB }}
+          POSTGRES_HOSTNAME: ${{ secrets.HOST_DB }}
         ports:
           - 5432:5432
     steps:
@@ -29,5 +30,5 @@ jobs:
         run: sleep 15
       - name: Executar pytest
         env:
-          DATABASE_URL: postgres://${{ secrets.USUARIO_DB }}:${{ secrets.SENHA_DB }}@localhost:5432/${{ secrets.NOME_DB }}
+          DATABASE_URL: postgres://${{ secrets.USUARIO_DB }}:${{ secrets.SENHA_DB }}@${{ secrets.HOST_DB }}:5432/${{ secrets.NOME_DB }}
         run: pytest teste.py
