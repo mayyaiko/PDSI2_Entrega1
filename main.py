@@ -44,3 +44,4 @@ def get_menu_data(db: Session = Depends(get_db)):
         db.rollback()  # Reverte a transação em caso de erro
         print(f"Erro ao inserir dados: {e}")
         return {"error": str(e)}, status.HTTP_500_INTERNAL_SERVER_ERROR
+# aaaaaaaaaaaaaaaaaaaaaa
